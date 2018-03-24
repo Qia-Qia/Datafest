@@ -17,13 +17,11 @@ Filter data on the following variables:
 
 5.[applies]
 
-6.[clicks]
+6.[employerJobCount] 
 
-7.[employerJobCount] 
+7.[candStatusReviewedCount]
 
-8.[candStatusReviewedCount]
-
-9.[jobagedays]
+8.[jobagedays]
 
 
 ## Data Analysis
