@@ -1,0 +1,19 @@
+---
+title: "Datafest18"
+author: "Sicong Li"
+date: "March 23, 2018"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(readr)
+```
+
+```{r}
+Indeedsample <- read.csv('DataGBsample.csv')
+Indeedsample <- Indeedsample %>%
+  filter(country == "US")
+```
+
