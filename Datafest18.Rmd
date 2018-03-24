@@ -12,7 +12,7 @@ library(readr)
 ```
 
 ```{r}
-Indeedsample <- read.csv('DataGBsample.csv')
+Indeedsample <- read_csv('DataGBsample.csv')
 Indeedsample <- Indeedsample %>%
   filter(country == "US") %>%
   select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays)
