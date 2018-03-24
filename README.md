@@ -9,11 +9,19 @@ The effect of Trump on supply/demand of different industries during the time per
 
 Variables needed:
 1.[country]
+
 2.[admin1]
-[city]
-[employerIndustry]
-[applies]
-[clicks]
-[employerJobCount] 
-[candStatusReviewedCount]
-[jobagedays]
+
+3.[city]
+
+4.[employerIndustry]
+
+5.[applies]
+
+6.[clicks]
+
+7.[employerJobCount] 
+
+8.[candStatusReviewedCount]
+
+9.[jobagedays]
