@@ -24,8 +24,7 @@ Visa_sample <- sample_n(Visadata, 100000)
 ```{r}
 IndeedData <- Indeedsample %>%
   filter(country == "US") %>%
-  select(country, admin1, city, employerIndustry, applies,  employerJobCount, candStatusReviewedCount, jobagedays, date) %>%
-  group_by(employerIndustry) %>%
+  select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, date) %>%
   mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
   group_by(date, employerIndustry) %>%
   summarise(mean = mean(LaborSupplyDemRatio))
@@ -36,7 +35,21 @@ Indeedplot
 ```
 
 ```{r}
+Indeeddate <- data.frame( date = Indeedsample$date,
+                 year = as.numeric(format(Indeedsample$date, format = "%Y")),
+                 month = as.numeric(format(Indeedsample$date, format = "%m")))
+Indeedbymonth <- Indeedsample %>%
+  full_join(Indeeddate, by = "date") %>%
+  unite(year_month,year,month)  %>%
+  filter(country == "US") %>%
+  select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, year_month) %>%
+  mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
+  group_by(year_month, employerIndustry) %>%
+  summarise(mean = mean(LaborSupplyDemRatio))
 
+Indeedplot <- ggplot(data=Indeedbymonth, aes(x=year_month, y=mean, color=employerIndustry, group = employerIndustry)) +
+  geom_line()
+Indeedplot
 ```
 
 
