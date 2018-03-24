@@ -2,7 +2,6 @@
 ## Contributors: Qiaqia, Meredith, Ralam, Caroline, Naila
 
 ## Data wrangling
-Smaple 100,000 cases from the full indeed data. Upload the new data as 'DataGBsample.csv'.
 
 Filter data on US only.
 
