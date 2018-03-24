@@ -17,16 +17,21 @@ Filter data on the following variables:
 
 5.[applies]
 
-6.[clicks]
+6.[employerJobCount] 
 
-7.[employerJobCount] 
+7.[candStatusReviewedCount]
 
-8.[candStatusReviewedCount]
-
-9.[jobagedays]
+8.[jobagedays]
 
 
 ## Data Analysis
 The effect of Trump on supply/demand of different industries during the time period Dec.2016-Jan.2018. 
 
+1. Visualization of Supply/demand vs time
+
+2. Scatter plot of supply vs demand
+
+3. Test relationships between variables, e.g multicollinearity
+
+4. Factor analysis
 

@@ -12,9 +12,24 @@ library(readr)
 ```
 
 ```{r}
-Indeedsample <- read_csv('DataGBsample.csv')
+Indeedsample <- read_csv('/Users/caroline/Downloads/Indeed_mini.csv')
 Indeedsample <- Indeedsample %>%
   filter(country == "US") %>%
   select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, date)
+```
+
+```{r}
+IndeedData <- Indeedsample %>%
+  filter(country == "US") %>%
+  select(country, admin1, city, employerIndustry, applies,  employerJobCount, candStatusReviewedCount, jobagedays, date) %>%
+  # group_by(employerIndustry) %>%
+  mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
+  group_by(date, employerIndustry) %>%
+  summarise(mean = mean(LaborSupplyDemRatio))
+
+Indeedplot <- ggplot(data=IndeedData, aes(x=date, y=mean, color=employerIndustry)) +
+  geom_line()
+
+Indeedplot
 ```
 

@@ -18,3 +18,7 @@ Indeedsample <- Indeedsample %>%
   select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays)
 ```
 
+```{r}
+H1bdata <- read_csv('')
+```
+
