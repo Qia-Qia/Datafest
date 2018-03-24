@@ -13,7 +13,7 @@ library(lubridate)
 ```
 
 ```{r}
-Indeedsample <- read_csv('/Users/caroline/Downloads/Indeed_mini.csv')
+Indeedsample <- read_csv('/Users/caroline/Downloads/dataFestReleaseFinal_3_23.csv')
 Indeedsample <- Indeedsample %>%
   filter(country == "US") %>%
   select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, date)
@@ -30,20 +30,30 @@ Indeedtest <- Indeedsample %>%
   select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, month) %>%
   mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
   group_by(month, employerIndustry) %>%
-  summarise(mean = mean(LaborSupplyDemRatio))
+  summarise(mean = mean(LaborSupplyDemRatio)) 
 
-Indeedplot <- ggplot(data=Indeedtest, aes(x=month, y=mean, color=employerIndustry, group = employerIndustry)) +
-  geom_line()
-Indeedplot
 ```
 
 
 ```{r}
-IndeedTop5 <- Indeedsample %>%
+IndeedRatio <- Indeedsample %>%
   mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
   group_by(employerIndustry) %>%
-  summarise(sum = sum(LaborSupplyDemRatio)) %>%
-  arrange(sum) %>%
-  head(5)
+  summarise(mean = mean(LaborSupplyDemRatio)) %>%
+  arrange(mean) 
 ```
 
+
+```{r}
+IndeedRatioTop <- Indeedtest %>%
+  filter(  employerIndustry=="Health Care/Medical" | 
+           employerIndustry=="Retail/Consumer Products" | 
+           employerIndustry=="Food/Beverage Services" | 
+           employerIndustry=="Technology/Information" | 
+           employerIndustry=="Hospitality/Travel")
+
+Indeedplot <- ggplot(data=IndeedRatioTop, aes(x=month, y=mean, color=employerIndustry, group = employerIndustry)) +
+  geom_line()
+
+Indeedplot
+```
