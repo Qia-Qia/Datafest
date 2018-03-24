@@ -9,6 +9,7 @@ output: html_document
 library(tidyverse)
 library(dplyr)
 library(readr)
+library(lubridate)
 ```
 
 ```{r}
@@ -21,33 +22,17 @@ Visadata <- read_csv('/Users/caroline/Downloads/H-1B_Disclosure_Data_FY17.csv')
 Visa_sample <- sample_n(Visadata, 100000)
 ```
 
-```{r}
-IndeedData <- Indeedsample %>%
-  filter(country == "US") %>%
-  select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, date) %>%
-  mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
-  group_by(date, employerIndustry) %>%
-  summarise(mean = mean(LaborSupplyDemRatio))
-
-Indeedplot <- ggplot(data=IndeedData, aes(x=date, y=mean, color=employerIndustry)) +
-  geom_line()
-Indeedplot
-```
 
 ```{r}
-Indeeddate <- data.frame( date = Indeedsample$date,
-                 year = as.numeric(format(Indeedsample$date, format = "%Y")),
-                 month = as.numeric(format(Indeedsample$date, format = "%m")))
-Indeedbymonth <- Indeedsample %>%
-  full_join(Indeeddate, by = "date") %>%
-  unite(year_month,year,month)  %>%
+Indeedtest <- Indeedsample %>%
+  mutate(month = floor_date(date, unit = "month")) %>%
   filter(country == "US") %>%
-  select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, year_month) %>%
+  select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, month) %>%
   mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
-  group_by(year_month, employerIndustry) %>%
+  group_by(month, employerIndustry) %>%
   summarise(mean = mean(LaborSupplyDemRatio))
 
-Indeedplot <- ggplot(data=Indeedbymonth, aes(x=year_month, y=mean, color=employerIndustry, group = employerIndustry)) +
+Indeedplot <- ggplot(data=Indeedtest, aes(x=month, y=mean, color=employerIndustry, group = employerIndustry)) +
   geom_line()
 Indeedplot
 ```
