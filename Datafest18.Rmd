@@ -57,3 +57,20 @@ Indeedplot <- ggplot(data=IndeedRatioTop, aes(x=month, y=mean, color=employerInd
 
 Indeedplot
 ```
+
+# joining with GDP
+```{r}
+GDPdata<-read.csv('GDP_data.csv')
+RatioSet <- Indeedsample %>%
+  group_by(admin1) %>%
+  summarise(mean = mean(employerJobCount)) %>%
+  arrange(mean) %>%
+  head(-5)
+
+RatioGDP <- 
+  left_join(RatioSet, GDPdata) 
+
+RatioGDP <- RatioGDP[-c(1,2,3,4,5),]
+
+qplot(data=RatioGDP, x=mean, y=X2016)
+```
