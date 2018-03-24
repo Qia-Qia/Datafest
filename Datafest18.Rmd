@@ -35,3 +35,12 @@ Indeedplot <- ggplot(data=IndeedData, aes(x=date, y=mean, color=employerIndustry
 Indeedplot
 ```
 
+```{r}
+IndeedTop5 <- Indeedsample %>%
+  mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
+  group_by(employerIndustry) %>%
+  summarise(sum = sum(LaborSupplyDemRatio)) %>%
+  arrange(sum) %>%
+  head(5)
+```
+
