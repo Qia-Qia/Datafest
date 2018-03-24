@@ -27,4 +27,11 @@ Filter data on the following variables:
 ## Data Analysis
 The effect of Trump on supply/demand of different industries during the time period Dec.2016-Jan.2018. 
 
+1. Visualization of Supply/demand vs time
+
+2. Scatter plot of supply vs demand
+
+3. Test relationships between variables, e.g multicollinearity
+
+4. Factor analysis
 
