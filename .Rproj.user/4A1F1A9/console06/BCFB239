@@ -1,0 +1,25 @@
+]0;~/datafest18[?1034h1x-vl921-72-19-114-54:datafest18 caroline$ [K1x-vl921-72-19-114-54:datafest18 caroline$ [K1x-vl921-72-19-114-54:datafest18 caroline$ git remote add origin [//your github url]
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=<push|fetch>]
+                          set up remote as a mirror to push to or fetch from
+
+]0;~/datafest181x-vl921-72-19-114-54:datafest18 caroline$ 
+]0;~/datafest181x-vl921-72-19-114-54:datafest18 caroline$ //pull those changes
+bash: //pull: No such file or directory
+]0;~/datafest181x-vl921-72-19-114-54:datafest18 caroline$ 
+]0;~/datafest181x-vl921-72-19-114-54:datafest18 caroline$ git pull origin master
+remote: Counting objects: 12, done.[K
+remote: Compressing objects:   8% (1/12)   [Kremote: Compressing objects:  16% (2/12)   [Kremote: Compressing objects:  25% (3/12)   [Kremote: Compressing objects:  33% (4/12)   [Kremote: Compressing objects:  41% (5/12)   [Kremote: Compressing objects:  50% (6/12)   [Kremote: Compressing objects:  58% (7/12)   [Kremote: Compressing objects:  66% (8/12)   [Kremote: Compressing objects:  75% (9/12)   [Kremote: Compressing objects:  83% (10/12)   [Kremote: Compressing objects:  91% (11/12)   [Kremote: Compressing objects: 100% (12/12)   [Kremote: Compressing objects: 100% (12/12), done.[K
+remote: Total 12 (delta 8), reused 0 (delta 0), pack-reused 0[K
+Unpacking objects:   8% (1/12)   Unpacking objects:  16% (2/12)   Unpacking objects:  25% (3/12)   Unpacking objects:  33% (4/12)   Unpacking objects:  41% (5/12)   Unpacking objects:  50% (6/12)   Unpacking objects:  58% (7/12)   Unpacking objects:  66% (8/12)   Unpacking objects:  75% (9/12)   Unpacking objects:  83% (10/12)   Unpacking objects:  91% (11/12)   Unpacking objects: 100% (12/12)   Unpacking objects: 100% (12/12), done.
+From https://github.com/Qia-Qia/Datafest
+ * branch            master     -> FETCH_HEAD
+   5d590e0..9e9fd6c  master     -> origin/master
+hint: Waiting for your editor to close the file... 

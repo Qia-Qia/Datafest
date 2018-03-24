@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1521855421255.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2579230918",
+    "id" : "DB57BF60",
+    "lastKnownWriteTime" : 1521858389,
+    "last_content_update" : 1521858389799,
+    "path" : "~/datafest18/Datafest18.Rmd",
+    "project_path" : "Datafest18.Rmd",
+    "properties" : {
+        "cursorPosition" : "17,59",
+        "scrollLine" : "2",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
