@@ -14,6 +14,7 @@ library(readr)
 ```{r}
 Indeedsample <- read.csv('DataGBsample.csv')
 Indeedsample <- Indeedsample %>%
-  filter(country == "US")
+  filter(country == "US") %>%
+  select(country, admin1, city, employerIndustry, applies, clicks, employerJobCount, candStatusReviewedCount, jobagedays)
 ```
 
