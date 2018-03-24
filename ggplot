@@ -1,0 +1,7 @@
+```{r}
+ggplot(meh,aes(x=employerJobCount, y= applies)) + geom_point()
+```
+
+```{r}
+ggplot(meh,aes(x=candStatusReviewedCount, y= applies)) + geom_point()
+```
