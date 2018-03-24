@@ -16,6 +16,9 @@ Indeedsample <- read_csv('/Users/caroline/Downloads/Indeed_mini.csv')
 Indeedsample <- Indeedsample %>%
   filter(country == "US") %>%
   select(country, admin1, city, employerIndustry, applies, employerJobCount, candStatusReviewedCount, jobagedays, date)
+
+Visadata <- read_csv('/Users/caroline/Downloads/H-1B_Disclosure_Data_FY17.csv')
+Visa_sample <- sample_n(Visadata, 100000)
 ```
 
 ```{r}
@@ -29,7 +32,6 @@ IndeedData <- Indeedsample %>%
 
 Indeedplot <- ggplot(data=IndeedData, aes(x=date, y=mean, color=employerIndustry)) +
   geom_line()
-
 Indeedplot
 ```
 
