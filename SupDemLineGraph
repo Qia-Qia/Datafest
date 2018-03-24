@@ -1,0 +1,7 @@
+IndeedData <- dataFestReleaseFinal_3_23 %>%
+  filter(country == "US") %>%
+  select(country, admin1, city, employerIndustry, applies,  employerJobCount, candStatusReviewedCount, jobagedays, date) %>%
+  # group_by(employerIndustry) %>%
+  mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
+  group_by(date, employerIndustry) %>%
+  summarise(mean(LaborSupplyDemRatio))
