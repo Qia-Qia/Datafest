@@ -1,0 +1,15 @@
+```{r}
+RatioSet <- DataGBsample %>%
+  mutate(LaborSupplyDemRatio = applies/ employerJobCount) %>%
+  group_by(admin1) %>%
+  summarise(sum = sum(LaborSupplyDemRatio)) %>%
+  arrange(sum) %>%
+  head(-5)
+```
+
+
+
+```{r}
+RatioGDP <- 
+  left_join(RatioSet, perCapGDP)
+```
