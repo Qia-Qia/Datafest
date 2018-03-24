@@ -58,7 +58,7 @@ Indeedplot <- ggplot(data=IndeedRatioTop, aes(x=month, y=mean, color=employerInd
 Indeedplot
 ```
 
-# joining with GDP
+## Joining with GDP
 ```{r}
 GDPdata<-read.csv('GDP_data.csv')
 RatioSet <- Indeedsample %>%
