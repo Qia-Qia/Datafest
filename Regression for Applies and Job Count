@@ -1,0 +1,42 @@
+
+
+
+```{r}
+meh <- DataGBsample%>%
+  filter(country == "US") %>%
+  mutate(AppClick = applies/ clicks) %>%
+  select(AppClick, descriptionLengthChars, date)
+
+```
+
+```{r}
+mdf <-
+  meh %>%
+  filter(country == "US") %>%
+  dplyr:: select( AppClick, descriptionLengthChars, date)
+mdf <- melt(mdf, id.vars="date")
+mdf$date <-as.Date(mdf$date,"%m/%d/%y")
+mdf <- mdf %>%
+  dplyr::arrange(date)
+```
+
+```{r}
+ggplot(meh,aes(x=candStatusReviewedCount, y= applies)) + geom_point() 
+
+AppRecMod <- lm(applies~ candStatusReviewedCount,  data = meh)
+
+```
+```{r}
+summary(AppRecMod)
+```
+
+
+
+```{r}
+ggplot(meh,aes(x=applies, y= employerJobCount)) + geom_point()
+```
+
+```{r}
+AppJoCoMod <- lm(applies~ employerJobCount + employerJobCount^2,  data = meh)
+summary(AppJoCoMod)
+```
